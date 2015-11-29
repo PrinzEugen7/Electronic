@@ -5,7 +5,6 @@ Servo servo;
 void setup() {
   Serial.begin(9600);  // シリアルポートを9600 bps[ビット/秒]で初期化
   servo.attach(9);      // 制御信号を送る出力ピンの設定
-  pinMode(0, OUTPUT);
 }
 
 void loop() {
@@ -17,7 +16,7 @@ void loop() {
     servo.write(deg);
     delay(20);                          // 20ms待機
     a_in = analogRead(0);               // 距離センサの出力を取得
-    distance = ((6762/(a_in-9))-4)*10;  // アナログ入力値を距離に変換
+    distance = 120  + random(-30, 30);
     Serial.println(String(deg) + "," + String(distance));
 
   }
@@ -26,7 +25,7 @@ void loop() {
     servo.write(deg);
     delay(20);                          // 20ms待機
     a_in = analogRead(0);               // 距離センサの出力を取得
-    distance = ((6762/(a_in-9))-4)*10;  // アナログ入力値を距離に変換
+    distance = 120  + random(-30, 30);
     Serial.println(String(deg) + "," + String(distance));
   }
 }
