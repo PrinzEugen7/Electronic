@@ -16,7 +16,7 @@ void loop() {
     servo.write(deg);
     delay(20);                          // 20ms待機
     a_in = analogRead(0);               // 距離センサの出力を取得
-    distance = 120  + random(-30, 30);
+    distance = ((6762/(a_in-9))-4)*10;  // 距離を算出
     Serial.println(String(deg) + "," + String(distance));
 
   }
@@ -25,7 +25,7 @@ void loop() {
     servo.write(deg);
     delay(20);                          // 20ms待機
     a_in = analogRead(0);               // 距離センサの出力を取得
-    distance = 120  + random(-30, 30);
+    distance = ((6762/(a_in-9))-4)*10;  // 距離を算出
     Serial.println(String(deg) + "," + String(distance));
   }
 }
