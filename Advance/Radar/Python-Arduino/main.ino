@@ -14,16 +14,19 @@ void loop() {
   int distance = 0;
   // 0-180度回転
   for (deg=0; deg<180; deg++) {
+    servo.write(deg);
+    delay(20);                          // 20ms待機
     a_in = analogRead(0);               // 距離センサの出力を取得
     distance = ((6762/(a_in-9))-4)*10;  // アナログ入力値を距離に変換
     Serial.println(String(deg) + "," + String(distance));
-    delay(20);          // 20ms待機
+
   }
   // 180-0度回転
   for (deg=180; deg>0; deg--) {
-    a_in = analogRead(0);         // 距離センサの出力を取得
-    distance = (6762/(a_in-9))-4; // アナログ入力値を距離に変換
+    servo.write(deg);
+    delay(20);                          // 20ms待機
+    a_in = analogRead(0);               // 距離センサの出力を取得
+    distance = ((6762/(a_in-9))-4)*10;  // アナログ入力値を距離に変換
     Serial.println(String(deg) + "," + String(distance));
-    delay(20);          // 20ms待機
   }
 }
