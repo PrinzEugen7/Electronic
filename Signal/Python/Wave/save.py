@@ -6,9 +6,8 @@ import struct
 # 波形の生成(振幅, 基本周波数, サンプリング周波数, 再生時間[s])
 def create_wave(A, f0, fs, t):
     data = []
-    # [-1.0, 1.0]の小数値が入った波を作成
-    for n in np.arange(t * fs):  # nはサンプルインデックス
-        s = A * np.sin(2 * np.pi * f0 * n / fs)
+    for n in np.arange(t * fs):
+        s = A * np.sin(2 * np.pi * f0 * n / fs) # 正弦波の計算
         # 振幅の範囲を-1～1に設定
         if s > 1.0:  s = 1.0
         if s < -1.0: s = -1.0
