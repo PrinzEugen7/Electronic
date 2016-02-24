@@ -35,7 +35,7 @@ def main():
     # 振幅スペクトルを描画
     plt.subplot(312)
     plt.plot(flist, amp, marker='o', linestyle='-')
-    plt.axis([0, fs/2, 0, 15])    # ナイキスト周波数まで表示すれば十分
+    plt.axis([0, fs/2, 0, 15])
     plt.xlabel("Frequency [Hz]")
     plt.ylabel("Amplitude spectrum")
 
