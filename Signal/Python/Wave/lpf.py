@@ -73,9 +73,8 @@ def main():
     g, fs = load_wave("test.wav")   # waveファイルの読み込み
     b = lpf(100.0 / fs, 10.0 / fs)# LPFのフィルタ係数を計算
     gf = fir(g, b)                  # FIRフィルタ処理
-    print gf
-    #save_wave(gf, 16, fs, "fir.wav")# 出力信号を保存
-    #disp_graph(g, gf)               # 元信号とフィルタ処理後の信号をグラフに表示
+    save_wave(gf, 16, fs, "fir.wav")# 出力信号を保存
+    disp_graph(g, gf)               # 元信号とフィルタ処理後の信号をグラフに表示
 
 if __name__ == '__main__':
     main()
