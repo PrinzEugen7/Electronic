@@ -10,7 +10,7 @@ def load_wave(filename):
     fs = wf.getnframes()
     g = wf.readframes(wf.getnframes())          # waveファイルの信号データをバイナリ型から整数型(1～-1)に変換
     g = np.frombuffer(g, dtype="int16")/32768.0 # 信号をバイナリデータに変換
-    return g, fs
+    return g, fs                                # 信号データgとサンプリング周波数fsを返す
 
 # 信号をwave形式で保存(信号, ビット数, サンプリング周波数, ファイル名)
 def save_wave(g, bit, fs, filename):
@@ -41,7 +41,6 @@ def disp_graph(g, gf):
     plt.axis([0, 300, -1.0, 1.0])   # 表示する範囲
     plt.xlabel("Time [sample]")
     plt.ylabel("Amplitude")
-
     # 信号の描画(フィルタ処理後)
     plt.subplot(212)
     plt.plot(gf)
@@ -51,15 +50,11 @@ def disp_graph(g, gf):
     plt.show()          # グラフ表示
 
 def main():
-    # waveファイルの読み込み
-    g, fs = load_wave("test.wav")
-    # FIRフィルタ処理
-    b = [0.3, 0.3]  # フィルタ係数
-    gf = fir(g, b)
-    # フィルタ処理後の信号を保存
-    save_wave(gf, 16, fs, "fir.wav")
-    # 元信号とフィルタ処理後の信号をグラフに表示
-    disp_graph(g, gf)
+    g, fs = load_wave("test.wav")   # waveファイルの読み込み
+    b = [0.3, 0.3]                  # フィルタ係数
+    gf = fir(g, b)                  # FIRフィルタ処理
+    save_wave(gf, 16, fs, "fir.wav")# 出力信号を保存
+    disp_graph(g, gf)               # 元信号とフィルタ処理後の信号をグラフに表示
 
 if __name__ == '__main__':
     main()
