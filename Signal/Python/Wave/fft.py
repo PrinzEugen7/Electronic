@@ -24,7 +24,7 @@ def main():
     G = np.fft.fft(g[n0:n0+N])                      # 高速フーリエ変換
     amp = [np.sqrt(c.real ** 2 + c.imag ** 2) for c in G]       # 振幅スペクトル
     phase = [np.arctan2(int(c.imag), int(c.real)) for c in G]   # 位相スペクトル
-    flist = [k * fs / N for k in range(N)]          # 周波数リスト
+    flist = np.fft.fftfreq(N, d=1.0/fs)             # 周波数リスト
     # 波形サンプルを描画
     plt.subplot(311)
     plt.plot(range(n0, n0+N), g[n0:n0+N])
