@@ -50,14 +50,14 @@ def main():
     # 振幅スペクトルを描画
     plt.subplot(223)
     plt.plot(f_list, amp1, marker='o', linestyle='-')
-    plt.axis([0, fs/2, 0, 15])    # ナイキスト周波数まで表示すれば十分
+    plt.axis([0, fs/2, 0, 15])
     plt.xlabel("Frequency [Hz]")
     plt.ylabel("Amplitude spectrum")
 
     # 位相スペクトルを描画（窓関数あり）
     plt.subplot(224)
     plt.plot(f_list, amp2, marker='o', linestyle='-')
-    plt.axis([0, fs/2, 0, 15])    # ナイキスト周波数まで表示すれば十分
+    plt.axis([0, fs/2, 0, 15])
     plt.xlabel("Frequency [Hz]")
     plt.ylabel("Amplitude spectrum")
     plt.show()
