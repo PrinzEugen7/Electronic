@@ -47,8 +47,8 @@ def lpf(fe, delta):
 def fir(g, b):
     gf = [0.0] * len(g)     # 出力信号
     N = len(b) - 1          # フィルタ係数の数
-    for n in range(len(g)):
-        for i in range(N):
+    for n in xrange(len(g)):
+        for i in xrange(N):
             if n - i >= 0:
                 gf[n] += b[i] * g[n-i]
     return gf
@@ -71,7 +71,7 @@ def disp_graph(g, gf):
 
 def main():
     g, fs = load_wave("test.wav")   # waveファイルの読み込み
-    b = lpf(100.0 / fs, 10.0 / fs)# LPFのフィルタ係数を計算
+    b = lpf(1000.0 / fs, 100.0 / fs)# LPFのフィルタ係数を計算
     gf = fir(g, b)                  # FIRフィルタ処理
     save_wave(gf, 16, fs, "fir.wav")# 出力信号を保存
     disp_graph(g, gf)               # 元信号とフィルタ処理後の信号をグラフに表示
