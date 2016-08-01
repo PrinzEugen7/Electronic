@@ -7,9 +7,7 @@ createSaw(char filename[], int max, double xmax, double xmin, double dx)
 	int i = 0;
 	int m = 0;	     
 	int n=0;
-	double x,y[max];
-
-     
+	double x,y[100];
 	FILE *fp;
     // ファイルオープン
 	if((fp=fopen(filename,"w"))==NULL){
@@ -23,10 +21,9 @@ createSaw(char filename[], int max, double xmax, double xmin, double dx)
 	}
 		 
 	// データ数分だけノコギリ波を生成
-	for(i = 0; i < 100; i++) {
+	for(i = 0; i < max; i++) {
 		for(m=0; m<n; m++) {
 			fprintf(fp,"%f\n",y[m]);
-			printf("%f\n",y[m]);
 		}
 	}
      
@@ -37,5 +34,5 @@ createSaw(char filename[], int max, double xmax, double xmin, double dx)
 int main()
 {
 	// ノコギリ波の作成
-	createSaw("data.txt", 100, 1.0, -1.0, 0.1);
+	createSaw("data.csv", 5, 1.0, -1.0, 0.1);
 }
