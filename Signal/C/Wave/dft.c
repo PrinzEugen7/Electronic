@@ -3,8 +3,8 @@
  
 #define pi 3.1415926535         // 円周率
 
- // フーリエ変換（読み込むファイル名, 書き込むファイル名）
-int ft(char filename1[], char filename2[])
+ // 離散フーリエ変換（読み込むファイル名, 書き込むファイル名）
+int dft(char filename1[], char filename2[])
 {  
 	int k, n, N;
 	int max = 100000;  // 読み込むデータ数の上限
@@ -45,6 +45,6 @@ int ft(char filename1[], char filename2[])
 
 int main()
 {
-	// フーリエ変換
-	ft("data.csv", "fourier.csv");
+	// 離散フーリエ変換
+	dft("data.csv", "fourier.csv");
 }
