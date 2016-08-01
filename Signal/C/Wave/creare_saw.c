@@ -2,7 +2,7 @@
 #include <math.h>
  
  // ノコギリ波の生成（ファイル名, データ数, 最大値, 最小値, データの間隔）
-createSaw(char filename[], int max, double xmax, double xmin, double dx)
+int createSaw(char filename[], int max, double xmax, double xmin, double dx)
 {  
 	int i = 0;
 	int m = 0;	     
