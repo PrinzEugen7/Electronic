@@ -39,7 +39,7 @@ int dft(char filename1[], char filename2[])
 		fprintf(fp2,"%d, %f\n", n, re*re+im*im);
 	}
 	fclose(fp1);
-	fclose(fp1);
+	fclose(fp2);
 	return 0;
 }
 
