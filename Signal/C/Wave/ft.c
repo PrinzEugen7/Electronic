@@ -34,9 +34,7 @@ int ft(char filename1[], char filename2[])
 		for(k=0; k<N; k++) {
 			re += f[k]*cos(2*pi*k*n/N);
 			im += -f[k]*sin(2*pi*k*n/N);
-
 		}
-		printf("%f\n", re);
 		fprintf(fp2,"%d, %f, %f\n", n, re, im);
 	}
 
