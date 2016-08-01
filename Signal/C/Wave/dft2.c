@@ -38,7 +38,6 @@ int dft(char filename1[], char filename2[])
 		}
 		fprintf(fp2,"%d, %f\n", n, re*re+im*im);
 	}
-
 	fclose(fp1);
 	fclose(fp1);
 	return 0;
@@ -47,5 +46,5 @@ int dft(char filename1[], char filename2[])
 int main()
 {
 	// 離散フーリエ変換
-	dft("data.csv", "fourier.csv");
+	dft("data.csv", "power_spectrum.csv");
 }
