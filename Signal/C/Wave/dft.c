@@ -39,7 +39,7 @@ int dft(char filename1[], char filename2[])
 	}
 
 	fclose(fp1);
-	fclose(fp1);
+	fclose(fp2);
 	return 0;
 }
 
