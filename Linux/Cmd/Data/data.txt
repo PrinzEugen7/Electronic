@@ -1,0 +1,5 @@
+1	America	Tom Brown 25
+2	Japan	Kei Sato  22
+3	China	Mao Ryu   28
+4	Korea	Lee Fei   21
+5	British	Mey Craus 24
