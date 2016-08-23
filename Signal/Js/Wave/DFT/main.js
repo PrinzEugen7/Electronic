@@ -1,3 +1,9 @@
+function main()
+{
+        data = new Array(0, 2, 3, 3, 2, 0, 2, 3, 3, 2, 0); 
+        alert( "計算結果　:　" + dft(data) );
+}
+
 function dft(a)
 {
 	var Re = [];// 実数部
