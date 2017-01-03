@@ -33,7 +33,7 @@ int dft(char filename1[], char filename2[])
 		double im = 0.0;
 		for(n=0; n<N; n++) {
 			re += (Re[n]*cos(2*pi*k*n/N)-Im[n]*sin(2*pi*k*n/N))/N;
-			im += (Re[n]*sin(2*pi*k*n/N)+Re[n]*sin(2*pi*k*n/N))/N;
+			im += (Re[n]*sin(2*pi*k*n/N)+Im[n]*cos(2*pi*k*n/N))/N; 
 		}
 		fprintf(fp2,"%d, %f, %f\n", k, re, im);
 	}
