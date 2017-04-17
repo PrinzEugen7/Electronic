@@ -3,6 +3,7 @@ int i = 0;  // 文字数のカウンタ
       
 void setup() {
   Serial.begin(9600);
+　　pinMode(13, OUTPUT); // 13番ピンを出力ピンに設定
 }
       
 void loop() {
