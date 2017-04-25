@@ -1,30 +1,27 @@
-char input[30];   // 文字列格納用
+char data[10];   // 文字列格納用
 int i = 0;  // 文字数のカウンタ
-	 
+
 void setup() {
-  pinMode(13, OUTPUT);
   Serial.begin(9600);
+  pinMode(13, OUTPUT);
+  digitalWrite(13, LOW);
 }
-	 
-void loop() {
-  
+
+// データ受信
+String serialRead(){
   // データ受信したとき
   if (Serial.available()) {
-    input[i] = Serial.read();
-     // 文字数が30以上 or 末尾文字
-    if (i > 30 || input[i] == '.') {
-      // 末尾に終端文字の挿入
-      input[i] = '\0';
-      // 受信文字列を送信
-      if (String(input)=="on"){
-        digitalWrite(13, HIGH);
-      }
-      else if (String(input)=="off"){
-        digitalWrite(13,LOW);
-      }
-      // カウンタの初期化
-      i = 0;
-    }
+    // 1文字ずつ読み込み
+    data[i] = Serial.read();
+    // 文字数が10以上 or 終端文字なら終了
+    if (i > 10 || data[i] == '\0') i = 0;
     else { i++; }
   }
+  return String(data);
+}
+
+void loop() {
+  String cmd = serialRead();
+  if(cmd =="on") digitalWrite(13, HIGH);
+  if(cmd =="off") digitalWrite(13, LOW);
 }
